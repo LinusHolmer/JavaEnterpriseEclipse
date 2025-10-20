@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/lektion4")
@@ -21,9 +18,16 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ProductDTO> CreateProduct(@Valid @RequestBody ProductDTO productDTO){
+    public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductDTO productDTO){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(productService.CreateProductService(productDTO));
+                .body(productService.createProductService(productDTO));
+    }
+
+    @GetMapping("/find")
+    public ResponseEntity<ProductDTO> findByName(@RequestParam String name){
+        return ResponseEntity
+                .ok(productService.findByNameService(name));
+
     }
 }

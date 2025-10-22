@@ -11,7 +11,7 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
     private final MessageMapper messageMapper;
-    private static final Logger logger = LoggerFactory.getLogger(MessageService.class);
+    private static final Logger log = LoggerFactory.getLogger(MessageService.class);
 
     @Autowired
     public MessageService(MessageRepository messageRepository, MessageMapper messageMapper) {
@@ -20,9 +20,18 @@ public class MessageService {
     }
 
     public Mono<Message> createMessageService(CreateMessageDTO createMessageDTO) {
+        log.info("Creating message with content: {}", createMessageDTO.message());
 
-        return messageRepository.save(messageMapper.toEntity(createMessageDTO)
-        );
+        return messageRepository.save(messageMapper.toEntity(createMessageDTO))
+                // doOnNext är väldigt coolt
+                .doOnNext(saved ->
+                        log.info("Message created with id: {}, content = {}, createdAt = {}, pinned = {}",
+                                saved.id(),
+                                saved.message(),
+                                saved.createdAt(),
+                                saved.pinned()));
+
+
     }
 
 }

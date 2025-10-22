@@ -22,7 +22,10 @@ public class MessageMapper {
     }
 
     public MessageResponseDTO toResponseDTO(Message message) {
-        return new MessageResponseDTO(message.id(), message.message(), message.createdAt());
+        return new MessageResponseDTO(message.id(),
+                message.message(),
+                message.createdAt()
+        );
     }
 
 

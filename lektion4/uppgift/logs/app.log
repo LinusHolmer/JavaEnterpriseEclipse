@@ -337,3 +337,8 @@ com.example.uppgift.product.ProductNotFoundException: User with username Lapto n
 2025-10-20T22:03:01.305+02:00  INFO 13672 --- [uppgift] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-10-20T22:03:01.489+02:00  WARN 13672 --- [uppgift] [http-nio-8080-exec-2] c.e.u.product.ProductControllerAdvice    : Validation failed for field 'name': Name must be at least 2 chars
 2025-10-20T22:03:15.981+02:00  WARN 13672 --- [uppgift] [http-nio-8080-exec-4] c.e.u.product.ProductControllerAdvice    : Validation failed for field 'price': Price must be at least 0.01
+2025-10-20T22:04:02.989+02:00  INFO 13672 --- [uppgift] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-20T22:04:02.993+02:00  INFO 13672 --- [uppgift] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-20T22:04:02.996+02:00  INFO 13672 --- [uppgift] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-20T22:04:02.998+02:00  INFO 13672 --- [uppgift] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-20T22:04:03.001+02:00  INFO 13672 --- [uppgift] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
